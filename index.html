@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leapp.studio - Marketing Infrastructure Solutions für Solo-Gründer & KMU</title>
+    <meta name="description" content="Marketing Infrastructure Solutions für Solo-Gründer & KMU. Webdesign, CRM-Integration, E-Mail-Marketing und KI-Tools. DACH-Region. Jetzt kostenlose Beratung.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'leapp-primary': '#1e40af',
+                        'leapp-secondary': '#3b82f6', 
+                        'leapp-accent': '#60a5fa',
+                        'leapp-dark': '#0f172a',
+                        'leapp-gray': '#f8fafc',
+                        'leapp-neon': '#00d4ff'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-pattern': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        'dark-texture': 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        .neon-text {
+            text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 15px #00d4ff, 0 0 20px #00d4ff;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 64, 175, 0.8) 50%, rgba(15, 23, 42, 0.95) 100%),
+                        url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="20" cy="20" r="1"/><circle cx="40" cy="40" r="1"/><circle cx="20" cy="40" r="1"/><circle cx="40" cy="20" r="1"/></g></g></svg>');
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%);
+            height: 1px;
+        }
+        
+        /* Adaptive Navigation Styles */
+        .nav-logo-white,
+        .nav-logo-gray {
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Default: Dark background navigation (Hero section) - Show White Logo */
+        #navbar.nav-dark .nav-logo-white {
+            opacity: 1;
+        }
+        
+        #navbar.nav-dark .nav-logo-gray {
+            opacity: 0;
+        }
+        
+        #navbar.nav-dark .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        #navbar.nav-dark .nav-link:hover {
+            color: #00d4ff;
+        }
+        
+        #navbar.nav-dark .mobile-menu-btn {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Light background navigation (White sections) - Show Gray Logo */
+        #navbar.nav-light .nav-logo-white {
+            opacity: 0;
+        }
+        
+        #navbar.nav-light .nav-logo-gray {
+            opacity: 1;
+        }
+        
+        #navbar.nav-light .nav-link {
+            color: #6b7280;
+        }
+        
+        #navbar.nav-light .nav-link:hover {
+            color: #1e40af;
+        }
+        
+        #navbar.nav-light .mobile-menu-btn {
+            color: #6b7280;
+        }
+        
+        /* Glass effect adaptation */
+        #navbar.nav-dark .glass-effect {
+            background: rgba(15, 23, 42, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        #navbar.nav-light .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Dropdown Styles for Dark Navigation */
+        #navbar.nav-dark .group:hover .bg-white {
+            background: rgba(15, 23, 42, 0.95);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        #navbar.nav-dark .group:hover .text-gray-700 {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        #navbar.nav-dark .group:hover .hover\:bg-gray-50:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        #navbar.nav-dark .group:hover .text-gray-400 {
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+
+<body class="font-sans bg-white text-gray-900 antialiased overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass-effect">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <a href="#" class="flex items-center">
+                            <img src="images/leapp-logo-white.svg" alt="leapp." class="h-8 nav-logo-white transition-opacity duration-300">
+                            <img src="images/leapp-logo-gray.svg" alt="leapp." class="h-8 nav-logo-gray transition-opacity duration-300 absolute">
+                        </a>
+
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex items-center space-x-8">
+                        <a href="#services" class="nav-link transition-colors font-medium">Services</a>
+                        <a href="#about" class="nav-link transition-colors font-medium">Über uns</a>
+                        <a href="#projects" class="nav-link transition-colors font-medium">Projekte</a>
+                        <a href="#process" class="nav-link transition-colors font-medium">Vorgehen</a>
+                        
+                        <!-- Legal Dropdown -->
+                        <div class="relative group">
+                            <button class="nav-link transition-colors font-medium flex items-center">
+                                Rechtliches
+                                <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div class="absolute right-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div class="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                                    <a href="impressum.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                                        <i class="fas fa-file-alt mr-2 text-gray-400"></i>
+                                        Impressum
+                                    </a>
+                                    <a href="datenschutz.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                                        <i class="fas fa-shield-alt mr-2 text-gray-400"></i>
+                                        Datenschutz
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="bg-leapp-primary text-white px-6 py-3 rounded-lg hover:bg-leapp-secondary transition-all duration-300 font-semibold">
+                            Kostenlose Beratung
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="lg:hidden">
+                        <button id="mobile-menu-btn" class="mobile-menu-btn transition-colors">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-effect">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#services" class="block nav-link transition-colors font-medium py-2">Services</a>
+                <a href="#about" class="block nav-link transition-colors font-medium py-2">Über uns</a>
+                <a href="#projects" class="block nav-link transition-colors font-medium py-2">Projekte</a>
+                <a href="#process" class="block nav-link transition-colors font-medium py-2">Vorgehen</a>
+                
+                <!-- Legal Section -->
+                <div class="border-t border-gray-200 mt-4 pt-4">
+                    <p class="nav-link text-sm font-semibold mb-2 opacity-75">Rechtliches</p>
+                    <a href="impressum.html" class="block nav-link transition-colors font-medium py-2 pl-4">
+                        <i class="fas fa-file-alt mr-2 text-sm opacity-60"></i>
+                        Impressum
+                    </a>
+                    <a href="datenschutz.html" class="block nav-link transition-colors font-medium py-2 pl-4">
+                        <i class="fas fa-shield-alt mr-2 text-sm opacity-60"></i>
+                        Datenschutz
+                    </a>
+                </div>
+                <a href="#contact" class="block bg-leapp-primary text-white px-6 py-3 rounded-lg text-center font-semibold mt-4">
+                    Kostenlose Beratung
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center hero-bg text-white overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-leapp-neon opacity-10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-leapp-secondary opacity-10 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-8">
+                        <i class="fas fa-rocket mr-2 text-leapp-neon"></i>
+                        <span>Marketing Infrastructure Solutions für Solo-Gründer & KMU</span>
+                    </div>
+                    
+                    <!-- Main Headline -->
+                    <h1 class="text-4xl lg:text-7xl font-bold leading-tight mb-6">
+                        <span class="block">Ihre Wege zu</span>
+                        <span class="block text-leapp-neon neon-text">besserer</span>
+                        <span class="block">Marketing-</span>
+                        <span class="block">Automation</span>
+                    </h1>
+                    
+                    <!-- Subheadline -->
+                    <p class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
+                        Komplette Marketing-Infrastruktur aus einer Hand. 
+                        <strong class="text-white">Webdesign, Marketing-Automation und KI-Development</strong> 
+                        für nachhaltige Skalierung von Solo-Gründern und KMU im DACH-Raum.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-leapp-neon text-leapp-dark rounded-lg hover:bg-white transition-all duration-300 text-lg font-bold shadow-lg hover:shadow-xl">
+                            <i class="fas fa-calendar-alt mr-3"></i>
+                            Kostenlose Erstberatung
+                        </a>
+                        <a href="#services" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-leapp-dark transition-all duration-300 text-lg font-semibold">
+                            <i class="fas fa-eye mr-3"></i>
+                            Services entdecken
+                        </a>
+                    </div>
+                    
+                    <!-- Enhanced Trust Indicators -->
+                    <div class="mt-12">
+                        <div class="grid grid-cols-3 gap-6 text-center mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-leapp-neon">150+</div>
+                                <div class="text-sm text-gray-400">Erfolgreiche Projekte</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-leapp-neon">5+</div>
+                                <div class="text-sm text-gray-400">Jahre Erfahrung</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-leapp-neon">98%</div>
+                                <div class="text-sm text-gray-400">Kundenzufriedenheit</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Proof Bar -->
+                        <div class="flex items-center justify-center lg:justify-start space-x-6 text-sm text-gray-400">
+                            <div class="flex items-center">
+                                <div class="flex -space-x-1 mr-2">
+                                    <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-green-600 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">★</span>
+                                    </div>
+                                    <div class="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">★</span>
+                                    </div>
+                                    <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">★</span>
+                                    </div>
+                                </div>
+                                <span>Vertraut von 50+ Unternehmen</span>
+                            </div>
+                            <span>•</span>
+                            <span>DACH-Region fokussiert</span>
+                            <span>•</span>
+                            <span>12h Ø Response-Zeit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative hidden lg:block">
+                    <div class="relative z-10">
+                        <!-- Main Device Mockup -->
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 shadow-2xl">
+                            <div class="bg-leapp-dark rounded-lg p-6 mb-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="text-leapp-neon font-bold">leapp.studio Dashboard</div>
+                                    <div class="flex space-x-2">
+                                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="h-3 bg-leapp-neon/30 rounded w-3/4"></div>
+                                    <div class="h-3 bg-leapp-secondary/50 rounded w-1/2"></div>
+                                    <div class="h-3 bg-leapp-accent/40 rounded w-5/6"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gradient-to-br from-leapp-primary to-leapp-secondary p-4 rounded-lg">
+                                    <div class="text-white font-semibold mb-2">Marketing ROI</div>
+                                    <div class="text-2xl font-bold text-leapp-neon">+340%</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-green-500 to-emerald-600 p-4 rounded-lg">
+                                    <div class="text-white font-semibold mb-2">Conversion Rate</div>
+                                    <div class="text-2xl font-bold text-white">12.8%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-leapp-neon/20 rounded-full animate-float"></div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-leapp-secondary/20 rounded-full animate-float" style="animation-delay: 2s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="animate-bounce">
+                <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-br from-leapp-gray to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-leapp-primary/10 text-leapp-primary rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-cogs mr-2"></i>
+                    Marketing Infrastructure
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-leapp-dark mb-6">
+                    Komplette <span class="text-leapp-primary">Marketing-Infrastruktur</span> für Ihr Business
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Von der strategischen Beratung bis zur technischen Umsetzung – 
+                    wir bauen die komplette Marketing-Infrastruktur für nachhaltiges Wachstum.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Webdesign & Development -->
+                <div class="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-leapp-primary to-leapp-secondary rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leapp-dark mb-4">Webdesign & Development</h3>
+                    <p class="text-gray-600 mb-6">
+                        Moderne, responsive Websites mit fokus auf Conversion-Optimierung und User Experience. 
+                        Von Landing Pages bis zu komplexen Web-Anwendungen.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Responsive Design</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>SEO-Optimierung</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Conversion-Fokus</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Performance-Optimierung</span>
+                        </li>
+                    </ul>
+                    <div class="text-2xl font-bold text-leapp-primary mb-2"><span class="hidden">ab 2.500€</span></div>
+                    <p class="text-sm text-gray-500">Einmalig, inkl. CMS</p>
+                </div>
+                
+                <!-- Marketing Automation -->
+                <div class="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl border-2 border-leapp-primary/20">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-leapp-neon to-leapp-accent rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <div class="bg-leapp-primary text-white px-3 py-1 rounded-full text-xs font-bold">BELIEBT</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leapp-dark mb-4">Marketing-Automation</h3>
+                    <p class="text-gray-600 mb-6">
+                        Vollständige Marketing-Automation-Setups mit CRM-Integration, E-Mail-Marketing, 
+                        Lead-Scoring und Performance-Tracking für maximalen ROI.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>CRM-Setup & Integration</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>E-Mail-Marketing-Workflows</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Lead-Scoring & Nurturing</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Performance-Dashboards</span>
+                        </li>
+                    </ul>
+                    <div class="text-2xl font-bold text-leapp-primary mb-2"><span class="hidden">ab 5.000€</span></div>
+                    <p class="text-sm text-gray-500">Setup + 3 Monate Support</p>
+                </div>
+                
+                <!-- KI-Integration -->
+                <div class="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leapp-dark mb-4">KI-Integration & Development</h3>
+                    <p class="text-gray-600 mb-6">
+                        Modernste KI-Tools für Ihr Business. Von Chatbots bis zu komplexen 
+                        Automatisierungen – wir bringen künstliche Intelligenz in Ihre Prozesse.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>KI-Chatbots & Assistenten</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Automatisierte Content-Erstellung</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Predictive Analytics</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Custom KI-Lösungen</span>
+                        </li>
+                    </ul>
+                    <div class="text-2xl font-bold text-leapp-primary mb-2"><span class="hidden">ab 3.500€</span></div>
+                    <p class="text-sm text-gray-500">Abhängig von Komplexität</p>
+                </div>
+                
+                <!-- Consulting & Strategie -->
+                <div class="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leapp-dark mb-4">Consulting & Strategie</h3>
+                    <p class="text-gray-600 mb-6">
+                        Strategische Beratung für Ihre digitale Transformation. 
+                        Wir analysieren Ihre Prozesse und entwickeln maßgeschneiderte Lösungskonzepte.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Digital-Strategie-Entwicklung</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Prozess-Optimierung</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Tool-Evaluation & -Auswahl</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>ROI-Analyse & Reporting</span>
+                        </li>
+                    </ul>
+                    <div class="text-2xl font-bold text-leapp-primary mb-2"><span class="hidden">150€</span></div>
+                    <p class="text-sm text-gray-500">Pro Stunde</p>
+                </div>
+                
+                <!-- Support & Wartung -->
+                <div class="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leapp-dark mb-4">Support & Wartung</h3>
+                    <p class="text-gray-600 mb-6">
+                        Kontinuierliche Betreuung Ihrer digitalen Systeme. Updates, Monitoring, 
+                        Optimierungen und technischer Support – damit alles reibungslos läuft.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>24/7 Monitoring</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Regelmäßige Updates</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Performance-Optimierung</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Technischer Support</span>
+                        </li>
+                    </ul>
+                    <div class="text-2xl font-bold text-leapp-primary mb-2"><span class="hidden">ab 500€</span></div>
+                    <p class="text-sm text-gray-500">Pro Monat</p>
+                </div>
+                
+                <!-- Schulungen & Training -->
+                <div class="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leapp-dark mb-4">Schulungen & Training</h3>
+                    <p class="text-gray-600 mb-6">
+                        Befähigen Sie Ihr Team zum selbständigen Umgang mit den implementierten Systemen. 
+                        Individuelle Schulungen und Workshops für nachhaltigen Erfolg.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>System-Schulungen</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Best-Practice-Workshops</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Individuelle Betreuung</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Dokumentation & Guides</span>
+                        </li>
+                    </ul>
+                    <div class="text-2xl font-bold text-leapp-primary mb-2"><span class="hidden">ab 800€</span></div>
+                    <p class="text-sm text-gray-500">Pro Tag (bis 6 Personen)</p>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="text-center mt-16">
+                <div class="section-divider mb-8"></div>
+                <h3 class="text-2xl font-bold text-leapp-dark mb-4">Nicht das Richtige dabei?</h3>
+                <p class="text-gray-600 mb-8">Wir entwickeln auch individuelle Lösungen für Ihre spezifischen Anforderungen.</p>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-leapp-primary text-white rounded-lg hover:bg-leapp-secondary transition-all duration-300 text-lg font-semibold shadow-lg">
+                    <i class="fas fa-comments mr-3"></i>
+                    Individuelle Beratung anfragen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-leapp-dark text-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-64 h-64 bg-leapp-neon opacity-5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-10 w-96 h-96 bg-leapp-primary opacity-5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Content -->
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-leapp-neon/20 text-leapp-neon rounded-full text-sm font-semibold mb-6">
+                        <i class="fas fa-user mr-2"></i>
+                        Über leapp.studio
+                    </div>
+                    
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-8">
+                        Ihr Partner für 
+                        <span class="text-leapp-neon neon-text">Marketing-Infrastruktur</span>
+                    </h2>
+                    
+                    <div class="space-y-6 mb-8">
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            Als <strong>Tech-Entrepreneur und Full-Stack-Developer</strong> mit über 5 Jahren Erfahrung 
+                            baue ich komplette Marketing-Infrastrukturen für Solo-Gründer und KMU.
+                        </p>
+                        
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Bei leapp.studio entwickeln wir <strong>skalierbare Marketing-Systeme</strong>, die mit Ihrem Business wachsen. 
+                            Moderne Technologie, realistische Ziele und <strong>messbare Ergebnisse</strong> – 
+                            das ist unsere Definition von nachhaltiger Marketing-Infrastruktur.
+                        </p>
+                    </div>
+                    
+                    <!-- USPs -->
+                    <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-rocket text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-2">Skalierbare Infrastruktur</h3>
+                                <p class="text-gray-400 text-sm">Marketing-Systeme, die mit Ihrem Business mitwachsen</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-handshake text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-2">Solo-Gründer-Verständnis</h3>
+                                <p class="text-gray-400 text-sm">Realistische Budgets und Zeitpläne für Ihr Business</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-chart-line text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-2">Messbare Ergebnisse</h3>
+                                <p class="text-gray-400 text-sm">Transparente ROI-Berechnung und Performance-Tracking</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-shield-alt text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-2">DACH-Region Fokus</h3>
+                                <p class="text-gray-400 text-sm">Verständnis für lokale Märkte und Compliance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Stats -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-gray-700">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-leapp-neon mb-2">150+</div>
+                            <div class="text-gray-400 text-sm">Erfolgreiche Projekte</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-leapp-neon mb-2">98%</div>
+                            <div class="text-gray-400 text-sm">Kundenzufriedenheit</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-leapp-neon mb-2">12h</div>
+                            <div class="text-gray-400 text-sm">Ø Response Time</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-leapp-neon mb-2">5+</div>
+                            <div class="text-gray-400 text-sm">Jahre Erfahrung</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trust Badges -->
+                    <div class="mt-8 pt-6 border-t border-gray-700">
+                        <div class="text-center text-gray-400 text-sm mb-4">Vertraut von Unternehmen in:</div>
+                        <div class="flex justify-center space-x-8 text-gray-500">
+                            <span class="text-xs font-medium">🇩🇪 Deutschland</span>
+                            <span class="text-xs font-medium">🇦🇹 Österreich</span>
+                            <span class="text-xs font-medium">🇨🇭 Schweiz</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visual/Photo -->
+                <div class="relative">
+                    <div class="relative z-10">
+                        <!-- Profile Card -->
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-2xl">
+                            <div class="text-center mb-6">
+                                <div class="w-32 h-32 bg-gradient-to-br from-leapp-neon to-leapp-primary rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Dany</h3>
+                                <p class="text-leapp-neon">Founder & Lead Developer</p>
+                            </div>
+                            
+                            <!-- Certifications/Skills -->
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                    <span class="text-sm">Full-Stack Development</span>
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                    <span class="text-sm">Marketing Automation</span>
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                    <span class="text-sm">KI-Integration</span>
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-2 h-2 bg-leapp-neon rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links -->
+                            <div class="flex justify-center space-x-4 mt-6 pt-6 border-t border-white/10">
+                                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Lead Dev Xerxes Card -->
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 shadow-2xl mt-6">
+                            <div class="text-center mb-4">
+                                <div class="w-24 h-24 bg-gradient-to-br from-leapp-secondary to-leapp-accent rounded-full mx-auto mb-3 flex items-center justify-center">
+                                    <i class="fas fa-code text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-1">Xerxes</h3>
+                                <p class="text-leapp-neon text-sm">Lead Developer</p>
+                            </div>
+                            
+                            <!-- Skills -->
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between p-2 bg-white/5 rounded-lg">
+                                    <span class="text-xs">Backend Architecture</span>
+                                    <div class="flex space-x-1">
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-white/5 rounded-lg">
+                                    <span class="text-xs">DevOps & Scaling</span>
+                                    <div class="flex space-x-1">
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-leapp-neon rounded-full"></div>
+                                        <div class="w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Background decorations -->
+                    <div class="absolute -top-8 -left-8 w-24 h-24 bg-leapp-neon/20 rounded-full animate-float"></div>
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-leapp-primary/20 rounded-full animate-float" style="animation-delay: 1s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects/Case Studies Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-leapp-primary/10 text-leapp-primary rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-trophy mr-2"></i>
+                    Erfolgsgeschichten
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-leapp-dark mb-6">
+                    Echte Ergebnisse für <span class="text-leapp-primary">echte Unternehmen</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Sehen Sie, wie wir anderen Unternehmen dabei geholfen haben, 
+                    ihre Marketing-Ziele zu erreichen und nachhaltiges Wachstum zu erzielen.
+                </p>
+            </div>
+            
+            <!-- Case Studies -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Case Study 1 -->
+                <div class="bg-gradient-to-br from-leapp-gray to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-store text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-leapp-dark">E-Commerce Startup</h3>
+                                <p class="text-gray-600">Fashion & Lifestyle</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-green-600">+340%</div>
+                            <div class="text-sm text-gray-500">Leads</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-leapp-dark mb-3">Herausforderung:</h4>
+                        <p class="text-gray-600 mb-4">
+                            Junges E-Commerce-Unternehmen mit hoher Bounce-Rate und ineffizienter Lead-Generierung. 
+                            Conversion-Rate bei nur 0,8% trotz hohem Traffic.
+                        </p>
+                        
+                        <h4 class="font-bold text-leapp-dark mb-3">Lösung:</h4>
+                        <p class="text-gray-600 mb-4">
+                            Vollständige Marketing-Automation mit personalisierten E-Mail-Workflows, 
+                            Abandoned-Cart-Recovery und intelligenter Lead-Segmentierung.
+                        </p>
+                        
+                        <h4 class="font-bold text-leapp-dark mb-3">Ergebnisse nach 6 Monaten:</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-3 bg-white rounded-lg">
+                                <div class="text-lg font-bold text-green-600">+340%</div>
+                                <div class="text-sm text-gray-600">Qualified Leads</div>
+                            </div>
+                            <div class="text-center p-3 bg-white rounded-lg">
+                                <div class="text-lg font-bold text-green-600">+180%</div>
+                                <div class="text-sm text-gray-600">Revenue</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-200">
+                        <div class="text-sm text-gray-500 mb-2">
+                            <strong>Investment:</strong> <span class="hidden">8.500€</span> | <strong>ROI:</strong> 320% nach 4 Monaten
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <div class="flex items-center mr-4">
+                                <div class="flex -space-x-1 mr-2">
+                                    <div class="w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs">★</span>
+                                    </div>
+                                    <div class="w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs">★</span>
+                                    </div>
+                                    <div class="w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs">★</span>
+                                    </div>
+                                </div>
+                                <span>"Außergewöhnliche Ergebnisse"</span>
+                            </div>
+                            <span class="text-gray-400">• Branche: E-Commerce</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="bg-gradient-to-br from-leapp-gray to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-leapp-primary rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-leapp-dark">SaaS-Unternehmen</h3>
+                                <p class="text-gray-600">B2B Software</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-blue-600">15h</div>
+                            <div class="text-sm text-gray-500">Saved/Week</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-leapp-dark mb-3">Herausforderung:</h4>
+                        <p class="text-gray-600 mb-4">
+                            Manuelle Lead-Qualifizierung und Customer-Onboarding kosteten das Team 
+                            wöchentlich 25+ Stunden bei niedriger Conversion-Rate.
+                        </p>
+                        
+                        <h4 class="font-bold text-leapp-dark mb-3">Lösung:</h4>
+                        <p class="text-gray-600 mb-4">
+                            Intelligente CRM-Automation mit Lead-Scoring, automatisiertes Onboarding 
+                            und KI-basierte Kundensegmentierung für personalisierte Kommunikation.
+                        </p>
+                        
+                        <h4 class="font-bold text-leapp-dark mb-3">Ergebnisse nach 4 Monaten:</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-3 bg-white rounded-lg">
+                                <div class="text-lg font-bold text-blue-600">15h</div>
+                                <div class="text-sm text-gray-600">Time Saved/Week</div>
+                            </div>
+                            <div class="text-center p-3 bg-white rounded-lg">
+                                <div class="text-lg font-bold text-blue-600">+120%</div>
+                                <div class="text-sm text-gray-600">Conversion Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-200">
+                        <div class="text-sm text-gray-500 mb-2">
+                            <strong>Investment:</strong> <span class="hidden">6.800€</span> | <strong>Payback:</strong> 2.1 Monate
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <div class="flex items-center mr-4">
+                                <div class="flex -space-x-1 mr-2">
+                                    <div class="w-6 h-6 bg-blue-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs">★</span>
+                                    </div>
+                                    <div class="w-6 h-6 bg-blue-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs">★</span>
+                                    </div>
+                                    <div class="w-6 h-6 bg-blue-500 rounded-full border-2 border-white flex items-center justify-center">
+                                        <span class="text-white text-xs">★</span>
+                                    </div>
+                                </div>
+                                <span>"Game-changing Automation"</span>
+                            </div>
+                            <span class="text-gray-400">• Branche: B2B SaaS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center text-leapp-dark mb-12">Was unsere Kunden sagen</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-leapp-primary">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-lg mr-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="text-sm text-gray-500">Verified Customer</div>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic leading-relaxed">
+                            "Endlich jemand, der nicht mit unrealistischen Versprechungen um sich wirft. 
+                            Das Team von leapp.studio hat ehrlich gesagt, dass es 4-5 Monate dauern wird – 
+                            und genau so war es auch. Die Ergebnisse sprechen für sich."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-leapp-primary to-leapp-secondary rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">M</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-leapp-dark">Marcus K.</div>
+                                <div class="text-gray-500 text-sm">SaaS-Gründer, PropTech</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-green-500">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-lg mr-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="text-sm text-gray-500">Verified Customer</div>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic leading-relaxed">
+                            "Als Solo-Gründerin war ich skeptisch gegenüber Agenturen. Aber hier merkt man sofort: 
+                            Die verstehen meine Situation. Realistische Ziele, transparente Kommunikation, 
+                            messbare Ergebnisse. Genau das, was ich brauchte."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">S</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-leapp-dark">Sarah L.</div>
+                                <div class="text-gray-500 text-sm">E-Commerce, Beauty & Wellness</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-gradient-to-br from-leapp-gray to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-leapp-primary/10 text-leapp-primary rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-route mr-2"></i>
+                    Unser Vorgehen
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-leapp-dark mb-6">
+                    So arbeiten wir <span class="text-leapp-primary">zusammen</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Transparenter, strukturierter Prozess mit realistischen Zeitplänen 
+                    und regelmäßigen Updates – damit Sie immer wissen, wo wir stehen.
+                </p>
+            </div>
+            
+            <!-- Process Steps -->
+            <div class="relative">
+                <!-- Connection Line -->
+                <div class="hidden lg:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-[calc(100%-8rem)] bg-gradient-to-b from-leapp-primary to-leapp-neon"></div>
+                
+                <div class="space-y-16 lg:space-y-24">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="lg:text-right">
+                                <div class="inline-flex items-center px-4 py-2 bg-leapp-primary text-white rounded-full text-sm font-bold mb-4">
+                                    Schritt 1
+                                </div>
+                                <h3 class="text-3xl font-bold text-leapp-dark mb-4">Kostenlose Erstberatung</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    In einem unverbindlichen Gespräch analysieren wir Ihre aktuellen Marketing-Prozesse 
+                                    und identifizieren konkrete Optimierungspotenziale. Sie erhalten bereits wertvollen Input.
+                                </p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center lg:justify-end">
+                                        <i class="fas fa-check text-green-500 mr-2 lg:order-2 lg:ml-2"></i>
+                                        <span>Ist-Analyse Ihrer Marketing-Systeme</span>
+                                    </li>
+                                    <li class="flex items-center lg:justify-end">
+                                        <i class="fas fa-check text-green-500 mr-2 lg:order-2 lg:ml-2"></i>
+                                        <span>Identifikation von Quick-Wins</span>
+                                    </li>
+                                    <li class="flex items-center lg:justify-end">
+                                        <i class="fas fa-check text-green-500 mr-2 lg:order-2 lg:ml-2"></i>
+                                        <span>Grobe ROI-Schätzung</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-4 lg:text-right">
+                                    <span class="text-leapp-primary font-bold">Dauer: 60 Minuten | Kostenlos</span>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="bg-white p-8 rounded-3xl shadow-lg">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-leapp-primary to-leapp-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-comments text-white text-2xl"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-leapp-dark mb-2">100% kostenlos</div>
+                                        <div class="text-gray-600">Unverbindliche Beratung</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step Number -->
+                        <div class="hidden lg:block absolute top-8 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-leapp-primary rounded-full flex items-center justify-center z-10">
+                            <span class="text-white font-bold text-xl hidden">1</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="lg:order-2">
+                                <div class="inline-flex items-center px-4 py-2 bg-leapp-secondary text-white rounded-full text-sm font-bold mb-4">
+                                    Schritt 2
+                                </div>
+                                <h3 class="text-3xl font-bold text-leapp-dark mb-4">Detailanalyse & Strategie</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Wir erstellen eine detaillierte Analyse Ihrer aktuellen Systeme und entwickeln 
+                                    eine maßgeschneiderte Marketing-Automation-Strategie mit realistischen Zielen.
+                                </p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Vollständige System-Audit</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Strategie-Entwicklung</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Detaillierter Projektplan</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>ROI-Prognose & Timeline</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-4">
+                                    <span class="text-leapp-primary font-bold">Dauer: 7-10 Tage | <span class="hidden">ab 1.500€</span></span>
+                                </div>
+                            </div>
+                            <div class="relative lg:order-1">
+                                <div class="bg-white p-8 rounded-3xl shadow-lg">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-leapp-secondary to-leapp-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-search text-white text-2xl"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-leapp-dark mb-2">Deep Dive</div>
+                                        <div class="text-gray-600">Strategische Planung</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step Number -->
+                        <div class="hidden lg:block absolute top-8 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-leapp-secondary rounded-full flex items-center justify-center z-10">
+                            <span class="text-white font-bold text-xl hidden">2</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="lg:text-right">
+                                <div class="inline-flex items-center px-4 py-2 bg-leapp-accent text-white rounded-full text-sm font-bold mb-4">
+                                    Schritt 3
+                                </div>
+                                <h3 class="text-3xl font-bold text-leapp-dark mb-4">Implementation</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    KI-beschleunigte Umsetzung mit wöchentlichen Updates und transparenter Kommunikation. 
+                                    Sie sind immer im Loop und können jederzeit Feedback geben.
+                                </p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center lg:justify-end">
+                                        <i class="fas fa-check text-green-500 mr-2 lg:order-2 lg:ml-2"></i>
+                                        <span>Agile Umsetzung in Sprints</span>
+                                    </li>
+                                    <li class="flex items-center lg:justify-end">
+                                        <i class="fas fa-check text-green-500 mr-2 lg:order-2 lg:ml-2"></i>
+                                        <span>Wöchentliche Status-Updates</span>
+                                    </li>
+                                    <li class="flex items-center lg:justify-end">
+                                        <i class="fas fa-check text-green-500 mr-2 lg:order-2 lg:ml-2"></i>
+                                        <span>Testing & Optimierung</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-4 lg:text-right">
+                                    <span class="text-leapp-primary font-bold">Dauer: 3-8 Wochen | Je nach Projekt</span>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="bg-white p-8 rounded-3xl shadow-lg">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-leapp-accent to-leapp-neon rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-cogs text-white text-2xl"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-leapp-dark mb-2">KI-Speed</div>
+                                        <div class="text-gray-600">10x schneller</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step Number -->
+                        <div class="hidden lg:block absolute top-8 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-leapp-accent rounded-full flex items-center justify-center z-10">
+                            <span class="text-white font-bold text-xl hidden">3</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="lg:order-2">
+                                <div class="inline-flex items-center px-4 py-2 bg-leapp-neon text-leapp-dark rounded-full text-sm font-bold mb-4">
+                                    Schritt 4
+                                </div>
+                                <h3 class="text-3xl font-bold text-leapp-dark mb-4">Launch & Optimierung</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Erfolgreicher Go-Live mit kontinuierlichem Monitoring und datenbasierter Optimierung. 
+                                    Wir bleiben so lange an Ihrer Seite, bis die Ziele erreicht sind.
+                                </p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Soft-Launch mit Testing</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Performance-Monitoring</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Kontinuierliche Optimierung</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Team-Schulungen</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-4">
+                                    <span class="text-leapp-primary font-bold">Dauer: Ongoing | Support-Pakete verfügbar</span>
+                                </div>
+                            </div>
+                            <div class="relative lg:order-1">
+                                <div class="bg-white p-8 rounded-3xl shadow-lg">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-leapp-neon to-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-rocket text-white text-2xl"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-leapp-dark mb-2">Success</div>
+                                        <div class="text-gray-600">Messbare Ergebnisse</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step Number -->
+                        <div class="hidden lg:block absolute top-8 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-leapp-neon rounded-full flex items-center justify-center z-10">
+                            <span class="text-leapp-dark font-bold text-xl hidden">4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="text-center mt-16">
+                <div class="section-divider mb-8"></div>
+                <h3 class="text-2xl font-bold text-leapp-dark mb-4">Bereit für den ersten Schritt?</h3>
+                <p class="text-gray-600 mb-8">Starten Sie mit einer kostenlosen Erstberatung – unverbindlich und voller wertvoller Insights.</p>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-leapp-primary text-white rounded-lg hover:bg-leapp-secondary transition-all duration-300 text-lg font-semibold shadow-lg">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    Kostenlose Beratung buchen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-leapp-dark text-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-leapp-dark via-leapp-primary/20 to-leapp-dark"></div>
+            <div class="absolute top-20 right-10 w-72 h-72 bg-leapp-neon opacity-10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 left-10 w-96 h-96 bg-leapp-primary opacity-10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Contact Info -->
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-leapp-neon/20 text-leapp-neon rounded-full text-sm font-semibold mb-6">
+                        <i class="fas fa-handshake mr-2"></i>
+                        Kontakt aufnehmen
+                    </div>
+                    
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-8">
+                        Lassen Sie uns über Ihr 
+                        <span class="text-leapp-neon neon-text">nächstes Projekt</span> sprechen
+                    </h2>
+                    
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Bereit für Marketing-Automation, die wirklich funktioniert? 
+                        Kontaktieren Sie uns für eine kostenlose Erstberatung und 
+                        entdecken Sie Ihr Potenzial.
+                    </p>
+                    
+                    <!-- Contact Methods -->
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold mb-1">E-Mail</div>
+                                <a href="mailto:hello@leapp.studio" class="text-gray-300 hover:text-leapp-neon transition-colors">
+                                    hello@leapp.studio
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-calendar-alt text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold mb-1">Termine</div>
+                                <p class="text-gray-300">Meist innerhalb von 24h verfügbar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-leapp-neon/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-leapp-neon"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold mb-1">Standort</div>
+                                <p class="text-gray-300">DACH-Region | Remote & vor Ort</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-leapp-neon hover:text-leapp-dark transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6">Kostenlose Erstberatung anfragen</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Name*</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-leapp-neon focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-sm font-medium mb-2">Unternehmen</label>
+                                <input type="text" id="company" name="company" 
+                                       class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-leapp-neon focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">E-Mail*</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-leapp-neon focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="revenue" class="block text-sm font-medium mb-2">Aktueller Monatsumsatz*</label>
+                            <select id="revenue" name="revenue" required 
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-leapp-neon focus:border-transparent">
+                                <option value="" class="text-gray-900">Bitte wählen</option>
+                                <option value="0-5k" class="text-gray-900">0 - 5.000€</option>
+                                <option value="5k-15k" class="text-gray-900">5.000 - 15.000€</option>
+                                <option value="15k-50k" class="text-gray-900">15.000 - 50.000€</option>
+                                <option value="50k+" class="text-gray-900">50.000€+</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium mb-2">Interesse an*</label>
+                            <select id="service" name="service" required 
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-leapp-neon focus:border-transparent">
+                                <option value="" class="text-gray-900">Bitte wählen</option>
+                                <option value="webdesign" class="text-gray-900">Webdesign & Development</option>
+                                <option value="automation" class="text-gray-900">Marketing-Automation</option>
+                                <option value="ai" class="text-gray-900">KI-Integration</option>
+                                <option value="consulting" class="text-gray-900">Consulting & Strategie</option>
+                                <option value="full-service" class="text-gray-900">Full-Service-Lösung</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Beschreiben Sie Ihre Herausforderung*</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      placeholder="z.B. Niedrige Conversion-Rate, manuelle Prozesse, fehlende Lead-Qualifizierung..."
+                                      class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-leapp-neon focus:border-transparent resize-none"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="privacy" name="privacy" required 
+                                   class="w-4 h-4 text-leapp-neon border-white/20 rounded focus:ring-leapp-neon bg-white/10">
+                            <label for="privacy" class="ml-3 text-sm text-gray-300">
+                                Ich stimme der <a href="#" class="text-leapp-neon hover:underline">Datenschutzerklärung</a> zu und erlaube die Kontaktaufnahme.*
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-leapp-neon text-leapp-dark py-4 px-8 rounded-lg hover:bg-white transition-all duration-300 font-bold text-lg shadow-lg flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-3"></i>
+                            Kostenlose Beratung anfragen
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 text-center text-sm text-gray-400">
+                        <i class="fas fa-lock mr-2"></i>
+                        100% kostenlos | Keine Verpflichtungen | DSGVO-konform
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-bold mb-4">
+                        <span class="text-leapp-primary">leapp</span><span class="text-leapp-neon neon-text">.studio</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Marketing Infrastructure Solutions für Solo-Gründer und KMU. 
+                        Komplette Marketing-Automation, Webdesign und KI-Integration aus einer Hand.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-leapp-primary transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-leapp-primary transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-leapp-primary transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-leapp-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="hover:text-leapp-neon transition-colors">Webdesign & Development</a></li>
+                        <li><a href="#services" class="hover:text-leapp-neon transition-colors">Marketing-Automation</a></li>
+                        <li><a href="#services" class="hover:text-leapp-neon transition-colors">KI-Integration</a></li>
+                        <li><a href="#services" class="hover:text-leapp-neon transition-colors">Consulting & Strategie</a></li>
+                        <li><a href="#services" class="hover:text-leapp-neon transition-colors">Support & Wartung</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Unternehmen</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-leapp-neon transition-colors">Über uns</a></li>
+                        <li><a href="#projects" class="hover:text-leapp-neon transition-colors">Projekte</a></li>
+                        <li><a href="#process" class="hover:text-leapp-neon transition-colors">Unser Vorgehen</a></li>
+                        <li><a href="#contact" class="hover:text-leapp-neon transition-colors">Kontakt</a></li>
+                        <li><a href="#" class="hover:text-leapp-neon transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom -->
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    © 2025 leapp.studio - Alle Rechte vorbehalten
+                </p>
+                <div class="flex space-x-6 text-sm text-gray-500 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-leapp-neon transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-leapp-neon transition-colors">Datenschutz</a>
+                    <a href="#" class="hover:text-leapp-neon transition-colors">AGB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
